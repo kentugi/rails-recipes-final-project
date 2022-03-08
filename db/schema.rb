@@ -15,13 +15,13 @@ ActiveRecord::Schema.define(version: 2022_03_07_093228) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "boomarks", force: :cascade do |t|
+  create_table "bookmarks", force: :cascade do |t|
     t.bigint "recipe_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["recipe_id"], name: "index_boomarks_on_recipe_id"
-    t.index ["user_id"], name: "index_boomarks_on_user_id"
+    t.index ["recipe_id"], name: "index_bookmarks_on_recipe_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 2022_03_07_093228) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "boomarks", "recipes"
-  add_foreign_key "boomarks", "users"
+  add_foreign_key "bookmarks", "recipes"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
   add_foreign_key "reviews", "recipes"
