@@ -9,11 +9,11 @@
 
 require 'faker'
 
-Recipe.destroy_all
-User.destroy_all
 Bookmark.destroy_all
 Comment.destroy_all
 Review.destroy_all
+Recipe.destroy_all
+User.destroy_all
 
 puts 'Creating 50 fake data...'
 50.times do
@@ -53,7 +53,7 @@ end
 
 10.times do
   comment = Comment.new(
-    remark: Faker::Lorem.sentence(word_count: 3),
+    remarks: Faker::Lorem.sentence(word_count: 3),
     recipe: Recipe.last,
     user: user
   )

@@ -52,9 +52,11 @@ ActiveRecord::Schema.define(version: 2022_03_07_093228) do
     t.text "body"
     t.integer "rating"
     t.bigint "recipe_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,4 +77,5 @@ ActiveRecord::Schema.define(version: 2022_03_07_093228) do
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
   add_foreign_key "reviews", "recipes"
+  add_foreign_key "reviews", "users"
 end
