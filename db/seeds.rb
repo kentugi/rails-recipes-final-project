@@ -7,20 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-require 'faker'
-
+RecipeIngredient.destroy_all
 Bookmark.destroy_all
 Comment.destroy_all
 Review.destroy_all
 Recipe.destroy_all
 User.destroy_all
+Ingredient.destroy_all
 
 puts 'Creating 50 fake data...'
 50.times do
   recipe = Recipe.new(
     title: Faker::Food.dish,
     description: Faker::Food.description,
-    ingredient: Faker::Food.ingredient,
     instruction: Faker::Food.measurement,
     prep_time: rand(1..40),
     cook_time: rand(1..120),
@@ -51,6 +50,14 @@ user_two.save!
   bookmark.save
 end
 
+500.times do
+  list = [Faker::Food.ingredient, Faker::Food.fruits, Faker::Food.vegetables, Faker::Food.spice]
+  ingredient = Ingredient.new(
+    label: list.sample
+  )
+  ingredient.save
+end
+
 10.times do
   comment = Comment.new(
     remarks: Faker::Lorem.sentence(word_count: 3),
@@ -70,5 +77,11 @@ end
   )
   review.save!
 end
+
+ri = RecipeIngredient.new(
+  recipe: Recipe.first,
+  ingredient: Ingredient.first
+)
+ri.save
 
 puts 'Finished!'
