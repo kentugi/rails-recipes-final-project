@@ -1,0 +1,113 @@
+<div class="show-columns">
+
+  <div class="show-column-left">
+    <div class="show-column-left-img">
+      <p>Add img here as a class background</p>
+    </div>
+    <div class="show-column-left-ingredients">
+      <div class="show-column-left-ingredients-title-notes">
+        <h2>INGREDIENTS</h2>
+        <p>'add note' link will be here</p>
+      </div>
+      <div class="show-column-left-ingredients-labels">
+        <p>List of ingredients will be here</p>
+      </div>
+    </div>
+    <div class="show-column-left-add-review-form">
+      <h2>Add review</h2>
+      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+          <button class="btn ghost start-cooking">Start Cooking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="show-column-right">
+
+    <div class="show-column-right-recipe-bio">
+
+        <div class="recipe-bio-title-rating-icons">
+
+          <div class="recipe-bio-title-rating">
+            <h1><%= @recipe.title %></h1>
+            <p>Stars icons will be here</p>
+            <p>Link to reviews will be here</p>
+          </div>
+
+          <div class="recipe-bio-icons">
+            <p>Icons will be here</p>
+          </div>
+
+        </div>
+
+        <div class="recipe-bio-description">
+          <p><%= @recipe.description %></p>
+        </div>
+
+        <div class="recipe-bio-time-diet">
+          <p>Prep Time:<%= @recipe.prep_time %> min Cook Time:<%= @recipe.cook_time %> min Total Time:<%= @recipe.total_time %> min</p>
+        </div>
+
+    </div>
+
+    <div class="show-column-right-instructions">
+      <h2>INSTRUCTIONS</h2>
+      <p><%= @recipe.instruction %></p>
+    </div>
+
+    <div class="show-column-right-reviews-cards">
+      <div class="show-column-right-review-card">
+        <p>Review will be here</p>
+      </div>
+      <div class="show-column-right-review-card">
+        <p>Review will be here</p>
+      </div>
+      <div class="show-column-right-review-card">
+        <p>Review will be here</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="home-popular-recipes-cards-container">
+    <h2>Popular Recipes</h2>
+    <div class="container"></div>
+    <div class="row">
+      <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+        <div class="popular-image-div">
+            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/07/cherry-tomato-pasta-1.jpg" class="popular-recipe-image">
+          </div>
+          <div class="recipe-content">
+            <h2 class="popular-recipe-title">Cherry Tomato Pasta</h2>
+          </div>
+      </div>
+      <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+          <div class="popular-image-div">
+            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2018/08/IMG_13094-cropped.jpg" class="popular-recipe-image">
+          </div>
+          <div class="recipe-content">
+            <h2 class="popular-recipe-title">Summer Asian Slaw</h2>
+          </div>
+      </div>
+      <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+          <div class="popular-image-div">
+            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2015/08/IMG_2015_08_13_05677-cropped.jpg" class="popular-recipe-image">
+          </div>
+          <div class="recipe-content">
+            <h2 class="popular-recipe-title">Portabello Mushroom Tacos</h2>
+          </div>
+      </div>
+      <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+          <div class="popular-image-div">
+            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/04/IMG_17224-cropped-1-580x732.jpg" class="popular-recipe-image">
+          </div>
+          <div class="recipe-content">
+            <h2 class="popular-recipe-title">Falafel Flatbread</h2>
+          </div>
+      </div>
+    </div>
+</div>
