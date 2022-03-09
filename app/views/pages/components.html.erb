@@ -1,6 +1,4 @@
 <%# BUTTON COMPONENTS %>
-<head><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"></head>
-
 <button class="btn ghost how-it-works">How it Works</button>
 <button class="btn ghost start-cooking">Start Cooking</button>
 <button class="btn ghost get-started">Get Started</button>
@@ -52,16 +50,32 @@
 <%# //------------------------------------------------------// %>
 
 <%# // RECIPE CARDS FOR INDEX PAGE // %>
-<div class="container">
+<div class="index-container">
   <div class="index-recipes-card col-lg-2 mx-2 mb-2">
-      <div class="index-image-div">
-        <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/07/cherry-tomato-pasta-1.jpg" class="index-recipe-image">
-      </div>
-      <div class="recipe-content">
-        <h3 class="index-recipe-title">Gluten Free Pan Pizza</h3>
-        <h2 class="index-recipe-desc">This cherry tomato pasta is my ideal summer dinner. Filled with bursty tomatoes, garlic, and basil, it's fresh, flavorful, and super easy to make!</h2>
+    <div class="index-image-div">
+      <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/07/cherry-tomato-pasta-1.jpg" class="index-recipe-image">
+    </div>
+    <div class="recipe-content">
+      <h3 class="index-recipe-title">Gluten Free Pan Pizza</h3>
+      <h2 class="index-recipe-desc">This cherry tomato pasta is my ideal summer dinner. Filled with bursty tomatoes, garlic, and basil, it's fresh, flavorful, and super easy to make!</h2>
+      <div class="link-bookmark">
         <a href class="www.google.com">wwww.google.com</a>
-        <button class="btn btn-light index-recipe-bookmark">save</button>
+        <p class="index-recipe-bookmark"><i class="far fa-bookmark"></i></p>
       </div>
+    </div>
+  </div>
+</div>
+
+<%# //------------------------------------------------------// %>
+
+<%# // RECIPE CARDS FOR SAVED PAGE // %>
+<div class="show-container">
+  <div class="show-recipe-cards">
+    <div class="show-recipe-body">
+      <h2 class="show-recipe card-circle subtle">01</h2>
+      <h3 class="show-card-title">New Brunch Recipe</h3>
+      <p class="show-card-description">These last few weeks I have been working hard on a new brunch recipe for you all.</p>
+    </div>
+    <img src="https://s15.postimg.cc/temvv7u4r/recipe.jpg" alt="" class="card-media" />
   </div>
 </div>
