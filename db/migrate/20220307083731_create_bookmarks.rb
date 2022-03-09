@@ -1,6 +1,6 @@
-class CreateBoomarks < ActiveRecord::Migration[6.1]
+class CreateBookmarks < ActiveRecord::Migration[6.1]
   def change
-    create_table :boomarks do |t|
+    create_table :bookmarks do |t|
       t.references :recipe, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 
