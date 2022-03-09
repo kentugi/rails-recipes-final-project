@@ -1,21 +1,74 @@
-.popular-recipes {
-  width: 346px;
-  height: 459px;
+// POPULAR RECIPES CARD FOR HOMEPAGE //
+
+.popular-recipes-card {
+  width: 345px;
+  height: 440px;
   border: none;
   border-radius: 8px;
   background-color: white;
 }
 
-.popular-recipe-img {
-  padding: 10px 5px 10px 5px;
-  border-radius: none;
+.popular-image-div {
+  display: flex;
+  justify-content: center;
+}
+
+.popular-recipe-image {
+  padding: 20px 10px 10px 10px;
+  width: 320px;
+  height: 400px;
 }
 
 .popular-recipe-title {
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 200;
   color: black;
   text-decoration: none;
-  box-shadow: none;
+}
+// ------------------------------------------------------------------- //
+
+// RECIPE CARDS FOR INDEX PAGE //
+
+.index-recipes-card {
+  width: 345px;
+  height: 525px;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.index-image-div {
+  display: flex;
+  justify-content: center;
+}
+
+.index-recipe-image {
+  padding: 20px 10px 10px 10px;
+  width: 320px;
+  height: 400px;
+}
+
+.index-recipe-title {
+  display: flex;
+  justify-content: left;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 200;
+  color: black;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.index-recipe-desc {
+  display: flex;
+  justify-content: left;
+  font-family: 'Bitter', serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: black;
+  margin-left: 20px;
+  text-decoration: none;
 }
