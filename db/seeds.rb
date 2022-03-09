@@ -16,7 +16,7 @@ User.destroy_all
 Ingredient.destroy_all
 
 puts 'Creating 50 fake data...'
-50.times do
+15.times do
   recipe = Recipe.new(
     title: Faker::Food.dish,
     description: Faker::Food.description,
