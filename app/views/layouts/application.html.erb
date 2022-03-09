@@ -13,23 +13,11 @@
   </head>
 
   <div class="container">
-      <body>
-        <%= render 'shared/navbar' %>
-        <%= render 'shared/flashes' %>
-        <%= yield %>
-     <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-      </div>
-  </div>
-      </body>
+    <body>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+          </body>
   </div>
 </html>
 
@@ -51,9 +39,9 @@ Follow Us
 </div>
 Recipes, Tips & More
 </h3>
-<div class="footer-newsletter-form-hldr">
+<%# <div class="footer-newsletter-form-hldr">
   <%= simple_form_for users_path, :url => users_path, method: :get, html: { class: 'd-flex form-inline' } do |f| %>
-    <%= f.input :email, placeholder: "Email Address", label: false %>
-    <%= f.submit "Sign Up", class: "btn ghost sign-up" %>
-  <% end %>
-</div>
+    <%# <%= f.input :email, placeholder: "Email Address", label: false %>
+    <%# <%= f.submit "Sign Up", class: "btn ghost sign-up" %>
+  <%# <% end %>
+<%# </div> %>
