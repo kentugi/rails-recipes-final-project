@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_093228) do
+ActiveRecord::Schema.define(version: 2022_03_08_063150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "boomarks", force: :cascade do |t|
+  create_table "bookmarks", force: :cascade do |t|
     t.bigint "recipe_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["recipe_id"], name: "index_boomarks_on_recipe_id"
-    t.index ["user_id"], name: "index_boomarks_on_user_id"
+    t.index ["recipe_id"], name: "index_bookmarks_on_recipe_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -34,10 +34,24 @@ ActiveRecord::Schema.define(version: 2022_03_07_093228) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.text "ingredient"
     t.text "instruction"
     t.integer "prep_time"
     t.integer "cook_time"
@@ -52,9 +66,11 @@ ActiveRecord::Schema.define(version: 2022_03_07_093228) do
     t.text "body"
     t.integer "rating"
     t.bigint "recipe_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,9 +86,12 @@ ActiveRecord::Schema.define(version: 2022_03_07_093228) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "boomarks", "recipes"
-  add_foreign_key "boomarks", "users"
+  add_foreign_key "bookmarks", "recipes"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "reviews", "recipes"
+  add_foreign_key "reviews", "users"
 end
