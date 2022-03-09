@@ -1,0 +1,15 @@
+<h1>Results</h1>
+<% @recipes.each do |recipe| %>
+
+<div class="index-recipes-card col-lg-2 mx-2 mb-2">
+    <div class="index-image-div">
+      <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/07/cherry-tomato-pasta-1.jpg" class="index-recipe-image">
+    </div>
+    <div class="recipe-content">
+      <h3 class="index-recipe-title"> <%=recipe.title%></h3>
+      <h2 class="index-recipe-desc"><%=recipe.description%></h2>
+      <a href class="www.google.com">wwww.google.com</a>
+      <button class="btn btn-light index-recipe-bookmark">save</button>
+    </div>
+</div>
+<% end %>
