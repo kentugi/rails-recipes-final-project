@@ -80,16 +80,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-align: left;
 }
 
 .index-recipe-bookmark {
-  font-size: 18px;
+  font-size: 12px;
   color: black;
   margin: 0px;
 }
 
+.index-recipe-timer {
+  font-size: 12px;
+  color: black;
+  margin: 0px;
+}
+
+.timer-text {
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+
 a {
-  display: flex;
   justify-content: left;
   font-family: 'Bitter', serif;
   font-size: 10px;
