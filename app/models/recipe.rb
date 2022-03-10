@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredients
 
   validates :title, presence: true
-  validates :description, presence: true
+  # validates :description, presence: true
   validates :instruction, presence: true
   validates :prep_time, presence: true
   validates :cook_time, presence: true
