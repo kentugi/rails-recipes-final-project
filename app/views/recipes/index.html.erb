@@ -1,12 +1,12 @@
 <div class="row justify-content-center">
-    <div class="results-h2">Results</div>
+  <div class="results-h2">Results</div>
       <% @recipes.each do |recipe| %>
         <div class="index-recipes-card col-lg-2 mx-2 mb-3">
           <div class="index-image-div">
-            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/07/cherry-tomato-pasta-1.jpg" class="index-recipe-image">
+          <%= image_tag recipe.image, class: "index-recipe-image" %>
           </div>
           <div class="recipe-content">
-            <h3 class="index-recipe-title"><%=recipe.title.truncate(30)%></h3>
+            <h3 class="index-recipe-title"><%=recipe.title%></h3>
             <h2 class="index-recipe-desc"><%=recipe.description.truncate(70)%></h2>
             <div class="link-bookmark">
               <a href class="www.google.com">wwww.google.com</a>
@@ -15,4 +15,5 @@
           </div>
         </div>
       <% end %>
-  </div
+  </div>
+</div>
