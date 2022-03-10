@@ -18,10 +18,12 @@
 
     <div class="home-search-bar">
       <%= simple_form_for :recipe, :url => recipes_path, method: :get do |f| %>
-        <%= f.input :label %>
+        <%= f.input :label, collection: Ingredient.all.map { |i| [i.label, i.label]}, input_html: { data: { controller: 'select2' }, multiple: "multiple"} %>
         <%= f.submit "Start cooking", class: "btn ghost start-cooking" %>
       <% end %>
     </div>
+
+
 
   </div>
 

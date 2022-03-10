@@ -17,8 +17,5 @@ class Recipe < ApplicationRecord
   pg_search_scope :search_by_label,
     associated_against: {
       ingredients: [:label]
-    },
-    using: {
-      tsearch: { prefix: true }
     }
 end
