@@ -1,1 +1,29 @@
-// Specific CSS for your home-page
+.home-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  width: 100%;
+  background-image: url("https://glowbattletour.com/wp-content/uploads/2018/12/398529-PCOFKE-482-min-1160x773.jpg");
+}
+
+.home-banner h1 {
+  font-weight: bold;
+}
+
+// .home-banner p {
+//   font-size: 20px;
+//   color: white;
+//   opacity: .7;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
+
+
+.home-banner-content {
+  text-align: center;
+}
+
+
+.home-search-container {
+  margin-top: 69px;
+  text-align: center;
+}
