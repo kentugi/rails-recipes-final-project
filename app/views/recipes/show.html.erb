@@ -60,7 +60,11 @@
 
     <div class="show-column-right-instructions">
       <h2>INSTRUCTIONS</h2>
-      <p><%= @recipe.instruction %></p>
+        <ol>
+          <% @instructions_array.each do |instruction|%>
+            <li><%= instruction %></li>
+          <% end %>
+        </ol>
     </div>
 
     <div class="show-column-right-reviews-cards">
