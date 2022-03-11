@@ -18,5 +18,6 @@ class RecipesController < ApplicationController
         @ingredient_list << single_ingredient.label
       end
     end
+    @instructions_array = @recipe.instruction.split('.')
   end
 end
