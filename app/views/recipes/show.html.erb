@@ -10,7 +10,13 @@
         <p>'add note' link will be here</p>
       </div>
       <div class="show-column-left-ingredients-labels">
-        <p>List of ingredients will be here</p>
+        <ul>
+        <p>
+          <% @ingredient_list.each do |element| %>
+            <li><%= p element %></li>
+          <% end %>
+        </p>
+        </ul>
       </div>
     </div>
     <div class="show-column-left-add-review-form">

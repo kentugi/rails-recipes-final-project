@@ -116,7 +116,8 @@ urls.each do |url|
     instruction = element.search(".wprm-recipe-instructions")
     prep_time = element.search(".wprm-recipe-prep_time-minutes")
     cook_time = element.search(".wprm-recipe-details-minutes")
-    total_time = element.search(".ERSTime.ERSTimeRight")
+    # total_time = element.search(".ERSTime.ERSTimeRight")
+
     # rating = element.search(".rating")
     image = html_doc.search(".alignnone")
 
@@ -155,5 +156,4 @@ urls.each do |url|
           ingredient: i
         )
     end
-
-  end
+ end
