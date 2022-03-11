@@ -4,7 +4,7 @@ Bookmark.destroy_all
 Comment.destroy_all
 Review.destroy_all
 Recipe.destroy_all
-# User.destroy_all
+User.destroy_all
 Ingredient.destroy_all
 
 # puts 'Creating 50 fake data...'
@@ -21,18 +21,18 @@ Ingredient.destroy_all
 #   recipe.save!
 # end
 
-# user = User.new(
-#   name: Faker::Name.name,
-#   email: "one@test.com",
-#   password: "123456789"
-# )
-# user.save!
-# user_two = User.new(
-#   name: Faker::Name.name,
-#   email: "two@test.com",
-#   password: "123456789"
-# )
-# user_two.save!
+user = User.new(
+  name: Faker::Name.name,
+  email: "one@test.com",
+  password: "123456789"
+)
+user.save!
+user_two = User.new(
+  name: Faker::Name.name,
+  email: "two@test.com",
+  password: "123456789"
+)
+user_two.save!
 
 # 10.times do
 #   bookmark = Bookmark.new(
@@ -92,7 +92,7 @@ end
 require "open-uri"
 require "nokogiri"
 
-inputs = ["pasta", "flatbread", "eggs", "burger", "salad"]
+inputs = ["pasta", "flatbread", "eggs", "burger", "salad", "soup"]
 inputs.each do |input|
   base_url = "https://www.loveandlemons.com/?s=#{input}&submit="
   base_html_file = URI.open(base_url).read
