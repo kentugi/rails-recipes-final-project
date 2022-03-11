@@ -42,13 +42,23 @@ Ingredient.destroy_all
 #   bookmark.save
 # end
 
-500.times do
-  list = [Faker::Food.ingredient, Faker::Food.fruits, Faker::Food.vegetables, Faker::Food.spice]
-  ingredient = Ingredient.new(
-    label: list.sample
-  )
-  ingredient.save
+# 500.times do
+#   list = [Faker::Food.ingredient, Faker::Food.fruits, Faker::Food.vegetables, Faker::Food.spice]
+#   ingredient = Ingredient.new(
+#     label: list.sample
+#   )
+#   ingredient.save
+# end
+
+require "csv"
+
+filepath = Rails.root.join("db", "top-1k-ingredients-new.csv")
+CSV.foreach(filepath) do |row|
+  # Here, row is an array of columns
+  Ingredient.create(label: row[0].capitalize)
 end
+
+
 
 # 10.times do
 #   comment = Comment.new(
@@ -82,80 +92,84 @@ end
 require "open-uri"
 require "nokogiri"
 
-input = "pasta"
-base_url = "https://www.loveandlemons.com/?s=#{input}&submit="
-base_html_file = URI.open(base_url).read
-base_html_doc = Nokogiri::HTML(base_html_file)
+inputs = ["pasta", "flatbread", "eggs", "burger", "salad"]
+inputs.each do |input|
+  base_url = "https://www.loveandlemons.com/?s=#{input}&submit="
+  base_html_file = URI.open(base_url).read
+  base_html_doc = Nokogiri::HTML(base_html_file)
 
-urls = []
-base_html_doc.search(".to-the-recipe").each do |link| #holds the URL
-  urls << link.attribute("href").value
+  urls = []
+  base_html_doc.search(".to-the-recipe").each do |link| #holds the URL
+    urls << link.attribute("href").value
+  end
+
+  # p urls
+
+  urls.each do |url|
+    p url
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+
+    # element = html_doc.search(".easyrecipe") || html_doc.search(".wprm-recipe-container")
+    #   name = element.search(".ERSName") || element.search(".wprm-recipe-name wprm-block-text-bold")
+    #   description = element.search(".ERSSummary") || element.search(".wprm-recipe-summary wprm-block-text-normal")
+    #   ingredients = element.search(".ERSIngredients") || element.search(".wprm-recipe-ingredients")
+    #   instruction = element.search(".ERSInstructions") || element.search(".wprm-recipe-instructions")
+    #   prep_time = element.search(".ERSTime") || element.search(".wprm-recipe-prep-time-container")
+    #   cook_time = element.search(".ERSTime ERSTimeRight") || element.search(".wprm-recipe-custom-time-container")
+    #   total_time = element.search(".ERSTime ERSTimeRight")
+    #   rating = element.search(".rating")
+
+    element =  html_doc.search(".wprm-recipe-container")
+      next if element.empty?
+      title = element.search(".wprm-recipe-name.wprm-block-text-bold")
+      description = element.search(".wprm-recipe-summary.wprm-block-text-normal")
+      ingredients = element.search(".wprm-recipe-ingredients .wprm-recipe-ingredient")
+      instruction = element.search(".wprm-recipe-instructions")
+      prep_time = element.search(".wprm-recipe-prep_time-minutes")
+      cook_time = element.search(".wprm-recipe-details-minutes")
+      # total_time = element.search(".ERSTime.ERSTimeRight")
+
+      # rating = element.search(".rating")
+      image = html_doc.search(".alignnone")
+
+      # puts name.text.strip
+      # puts description.text.strip
+      recipe_ingredients = ingredients.map do |i|
+        {
+          unit: i.search(".wprm-recipe-ingredient-unit").text.strip,
+          amount: i.search(".wprm-recipe-ingredient-amount").text.strip,
+          label: i.search(".wprm-recipe-ingredient-name").text.strip
+        }
+      end
+      # puts instruction.text.strip
+      # puts prep_time.text.strip
+      # puts cook_time.text.strip
+      # puts total_time.text.strip
+      # puts rating.text.strip
+      # puts image.attribute("src").value
+      # puts element.attribute("href").value
+      p title.text.strip
+      recipe = Recipe.new(
+        title: title.text.strip,
+        description: description.text.strip,
+        instruction: instruction.text.strip,
+        prep_time: prep_time.text.strip,
+        cook_time: cook_time.text.strip,
+        image: image.attribute("src").value
+      )
+      if recipe.cook_time && recipe.prep_time
+        recipe.total_time = (recipe.prep_time + recipe.cook_time)
+      end
+      recipe.save!
+
+      recipe_ingredients.each do |ingredient|
+        i = Ingredient.find_or_create_by(label: ingredient[:label].capitalize)
+
+        RecipeIngredient.create!(
+            recipe: recipe,
+            ingredient: i
+          )
+      end
+  end
 end
-
-# p urls
-
-urls.each do |url|
-  p url
-  html_file = URI.open(url).read
-  html_doc = Nokogiri::HTML(html_file)
-
-  # element = html_doc.search(".easyrecipe") || html_doc.search(".wprm-recipe-container")
-  #   name = element.search(".ERSName") || element.search(".wprm-recipe-name wprm-block-text-bold")
-  #   description = element.search(".ERSSummary") || element.search(".wprm-recipe-summary wprm-block-text-normal")
-  #   ingredients = element.search(".ERSIngredients") || element.search(".wprm-recipe-ingredients")
-  #   instruction = element.search(".ERSInstructions") || element.search(".wprm-recipe-instructions")
-  #   prep_time = element.search(".ERSTime") || element.search(".wprm-recipe-prep-time-container")
-  #   cook_time = element.search(".ERSTime ERSTimeRight") || element.search(".wprm-recipe-custom-time-container")
-  #   total_time = element.search(".ERSTime ERSTimeRight")
-  #   rating = element.search(".rating")
-
-  element =  html_doc.search(".wprm-recipe-container")
-  #  next if !element
-    title = element.search(".wprm-recipe-name.wprm-block-text-bold")
-    description = element.search(".wprm-recipe-summary.wprm-block-text-normal")
-    ingredients = element.search(".wprm-recipe-ingredients .wprm-recipe-ingredient")
-    instruction = element.search(".wprm-recipe-instructions")
-    prep_time = element.search(".wprm-recipe-prep_time-minutes")
-    cook_time = element.search(".wprm-recipe-details-minutes")
-    # total_time = element.search(".ERSTime.ERSTimeRight")
-
-    # rating = element.search(".rating")
-    image = html_doc.search(".alignnone")
-
-    # puts name.text.strip
-    # puts description.text.strip
-    recipe_ingredients = ingredients.map do |i|
-      {
-        unit: i.search(".wprm-recipe-ingredient-unit").text.strip,
-        amount: i.search(".wprm-recipe-ingredient-amount").text.strip,
-        label: i.search(".wprm-recipe-ingredient-name").text.strip
-      }
-    end
-    # puts instruction.text.strip
-    # puts prep_time.text.strip
-    # puts cook_time.text.strip
-    # puts total_time.text.strip
-    # puts rating.text.strip
-    # puts image.attribute("src").value
-    # puts element.attribute("href").value
-    p title.text.strip
-    recipe = Recipe.new(
-      title: title.text.strip,
-      description: description.text.strip,
-      instruction: instruction.text.strip,
-      prep_time: prep_time.text.strip,
-      cook_time: cook_time.text.strip,
-      image: image.attribute("src").value
-    )
-    recipe.total_time = (recipe.prep_time + recipe.cook_time)
-    recipe.save!
-
-    recipe_ingredients.each do |ingredient|
-      i = Ingredient.find_or_create_by(label: ingredient[:label].capitalize)
-
-      RecipeIngredient.create!(
-          recipe: recipe,
-          ingredient: i
-        )
-    end
- end

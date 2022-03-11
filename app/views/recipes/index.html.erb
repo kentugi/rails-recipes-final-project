@@ -10,7 +10,7 @@
           <h3 class="index-recipe-title"><%=recipe.title.truncate(25)%></h3>
           <h2 class="index-recipe-desc"><%=recipe.description.truncate(70)%></h2>
           <div class="link-bookmark">
-            <p class="mb-0 timer-text"><i class="far fa-clock index-recipe-timer"></i> <%= recipe.total_time %> mins</p>
+            <p class="mb-0 timer-text"><i class="far fa-clock index-recipe-timer"></i> <%= recipe.total_time || recipe.cook_time %> mins</p>
             <p class="index-recipe-bookmark"><i class="far fa-bookmark"></i></p>
           </div>
         </div>
