@@ -110,6 +110,7 @@ urls.each do |url|
   #   rating = element.search(".rating")
 
   element =  html_doc.search(".wprm-recipe-container")
+  #  next if !element
     title = element.search(".wprm-recipe-name.wprm-block-text-bold")
     description = element.search(".wprm-recipe-summary.wprm-block-text-normal")
     ingredients = element.search(".wprm-recipe-ingredients .wprm-recipe-ingredient")
