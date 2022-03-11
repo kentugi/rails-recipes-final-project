@@ -42,13 +42,13 @@ Ingredient.destroy_all
 #   bookmark.save
 # end
 
-# 500.times do
-#   list = [Faker::Food.ingredient, Faker::Food.fruits, Faker::Food.vegetables, Faker::Food.spice]
-#   ingredient = Ingredient.new(
-#     label: list.sample
-#   )
-#   ingredient.save
-# end
+500.times do
+  list = [Faker::Food.ingredient, Faker::Food.fruits, Faker::Food.vegetables, Faker::Food.spice]
+  ingredient = Ingredient.new(
+    label: list.sample
+  )
+  ingredient.save
+end
 
 # 10.times do
 #   comment = Comment.new(
@@ -147,6 +147,7 @@ urls.each do |url|
     )
     recipe.total_time = (recipe.prep_time + recipe.cook_time)
     recipe.save!
+
     recipe_ingredients.each do |ingredient|
       i = Ingredient.find_or_create_by(label: ingredient[:label].capitalize)
 
