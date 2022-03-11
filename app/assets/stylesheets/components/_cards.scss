@@ -1,8 +1,8 @@
 // POPULAR RECIPES CARD FOR HOMEPAGE //
 
 .popular-recipes-card {
-  width: 345px;
-  height: 440px;
+  width: 245px;
+  height: 340px;
   border: none;
   border-radius: 8px;
   background-color: white;
@@ -15,16 +15,26 @@
 
 .popular-recipe-image {
   padding: 20px 10px 10px 10px;
-  width: 320px;
-  height: 400px;
+  width: 220px;
+  height: 300px;
 }
 
 .popular-recipe-title {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 200;
+  color: black;
+  text-decoration: none;
+}
+
+.popular-recipe-header {
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
   color: black;
   text-decoration: none;
 }
