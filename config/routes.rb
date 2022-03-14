@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/components", to: "pages#components"
-  resources :recipes, only: [:index, :show]
+  resources :recipes, only: [:index, :show] do
+    resources :bookmarks, only: [:new, :create]
+  end
 
+  resources :bookmarks, only: [:index, :destroy]
 end
