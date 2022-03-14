@@ -1,5 +1,4 @@
-
-  <div class="home-banner">
+<div class="home-banner">
       <div class="home-banner-content">
         <h1>Discover new recipes, reduce food waste.</h1>
         <p>Find the perfect recipe catered for you. Eat sustainably and eat the best</p>
@@ -9,19 +8,16 @@
 
 <div class="container">
   <div class="home-search-container">
-
     <div class="home-search-title">
       <h2>How it Works</h2>
       <p>Find recipes with ingredients that you have on hand</p>
     </div>
-
     <div class="home-search-bar">
       <%= simple_form_for :recipe, :url => recipes_path, method: :get do |f| %>
-        <%= f.input :label, collection: Ingredient.all.map { |i| [i.label, i.label]}, input_html: { data: { controller: 'select2' }, multiple: "multiple"} %>
+        <%= f.input :label, label: false, collection: Ingredient.all.map { |i| [i.label, i.label]}, input_html: { data: { controller: 'select2' }, multiple: "multiple"} %>
         <%= f.submit "Start cooking", class: "btn ghost start-cooking" %>
       <% end %>
     </div>
-
   </div>
 </div>
 
