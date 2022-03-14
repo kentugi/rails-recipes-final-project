@@ -82,3 +82,150 @@
   margin-left: 20px;
   text-decoration: none;
 }
+
+// ------------------------------------------------------------------- //
+
+// REVIEW CARDS FOR SHOW PAGE //
+
+.show-column-right-review-card {
+  background-color: #FDFBEA;
+  color: black
+}
+
+.show-column-left-ingredients {
+  border: 2px solid #525DB1;
+  border-radius: 8px;
+  width: 435px;
+  padding: 5px 5px 5px 5px;
+}
+
+.show-column-left-ingredients-labels {
+  font-family: 'Bitter', serif;
+  color: black;
+  font-size: 14px;
+  font-weight: 200;
+  li {
+    padding: 2px;
+  }
+}
+
+.show-column-left-ingredients-title-notes {
+  h2 {
+  font-family: 'Bitter', serif;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 30px;
+  }
+}
+
+.show-column-right-instructions {
+  h2 {
+  font-family: 'Bitter', serif;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 30px;
+  }
+}
+
+.show-column-right-instructions {
+  li {
+  font-family: 'Bitter', serif;
+  color: black;
+  font-size: 14px;
+  font-weight: 200;
+  margin-left: 30px;
+  padding: 2px;
+  }
+}
+
+// .review-form {
+//   padding-top: 26px;
+//   padding-bottom: 24px;
+//   padding-left: 24px;
+//   padding-right: 24px;
+//   position: relative;
+// }
+
+// .rating-form {
+//   border: 1px solid #525DB1;
+//   padding-top: 10px;
+// }
+
+// .body-form {
+//   border: 1px solid #525DB1;
+//   padding-top: 10px
+// }
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #525DB1;
+  border-radius: 8px;
+  width: 435px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #0E0000;
+}
+
+.review-reply-title {
+  margin-top: 30px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.show-recipe-title {
+  h1 {
+  font-size: 24px;
+  font-weight: 400px;
+  font-family: 'Montserrat', sans-serif;
+  }
+}
+
+.recipe-bio-description {
+  font-family: 'Bitter', serif;
+  color: black;
+  font-size: 14px;
+}
+
+.recipe-bio-time {
+  font-family: 'Bitter', serif;
+  color: black;
+  font-size: 12px;
+}
+
+.show-column-right-reviews-cards {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  background-color: #F4F4F4;
+  display: block;
+  padding-left: 20px;
+  padding-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  height: 215px;
+  width: 530px;
+  p {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
+.recipe-image {
+  width: 435px;
+}
+
+// -------------------------DIVS RECIPE SHOW PAGE---------------------------- //
+
+.recipe-container {
+  margin-top: 35px;
+  margin-left: 45px;
+  margin-right: 45px;
+}
