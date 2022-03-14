@@ -92,7 +92,7 @@ end
 require "open-uri"
 require "nokogiri"
 
-inputs = ["pasta", "flatbread", "eggs", "burger", "salad"]
+inputs = ["pasta", "flatbread", "eggs", "burger", "salad", "soup", "sauce", "vegan", "rice"]
 inputs.each do |input|
   base_url = "https://www.loveandlemons.com/?s=#{input}&submit="
   base_html_file = URI.open(base_url).read
@@ -128,6 +128,8 @@ inputs.each do |input|
       instruction = element.search(".wprm-recipe-instructions")
       prep_time = element.search(".wprm-recipe-prep_time-minutes")
       cook_time = element.search(".wprm-recipe-details-minutes")
+      reviews = html_doc.search(".comment-content")
+      review_id = html_doc.search(".comment-author")
       # total_time = element.search(".ERSTime.ERSTimeRight")
 
       # rating = element.search(".rating")
@@ -149,7 +151,7 @@ inputs.each do |input|
       # puts rating.text.strip
       # puts image.attribute("src").value
       # puts element.attribute("href").value
-      p title.text.strip
+      p reviews.text.strip
       recipe = Recipe.new(
         title: title.text.strip,
         description: description.text.strip,
@@ -168,7 +170,9 @@ inputs.each do |input|
 
         RecipeIngredient.create!(
             recipe: recipe,
-            ingredient: i
+            ingredient: i,
+            unit: ingredient[:unit],
+            amount: ingredient[:amount]
           )
       end
   end

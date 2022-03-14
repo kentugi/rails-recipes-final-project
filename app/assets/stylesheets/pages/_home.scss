@@ -27,3 +27,27 @@
   margin-top: 69px;
   text-align: center;
 }
+
+.popular-recipes-row {
+  background-color: #FDFBEA;
+  height: 440px;
+  width: 100vw;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.footer {
+  flex-direction: row;
+  list-style: none;
+  padding-top: 50px;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 10px;
+}

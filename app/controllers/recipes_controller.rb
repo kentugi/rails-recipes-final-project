@@ -10,14 +10,15 @@ class RecipesController < ApplicationController
   def show
     @all_ingredients = RecipeIngredient.all
     @recipe = Recipe.find(params[:id])
-    @ingredient_list = []
-    @all_ingredients.each do |ingredient|
-      if ingredient.recipe_id == @recipe.id
-        i = ingredient.ingredient_id
-        single_ingredient = Ingredient.find(i)
-        @ingredient_list << single_ingredient.label
-      end
-    end
+    @recipe_ingredients = @recipe.recipe_ingredients
+    # @ingredient_list = []
+    # @all_ingredients.each do |ingredient|
+    #   if ingredient.recipe_id == @recipe.id
+    #     i = ingredient.ingredient_id
+    #     single_ingredient = Ingredient.find(i)
+    #     @ingredient_list << single_ingredient.label
+    #   end
+    # end
     @instructions_array = @recipe.instruction.split('.')
   end
 end

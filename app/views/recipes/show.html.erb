@@ -12,8 +12,8 @@
       <div class="show-column-left-ingredients-labels">
         <ul>
         <p>
-          <% @ingredient_list.each do |element| %>
-            <li><%= p element %></li>
+          <% @recipe_ingredients.each do |recipe_ingredient| %>
+            <li><%= recipe_ingredient.amount %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.label %></li>
           <% end %>
         </p>
         </ul>
