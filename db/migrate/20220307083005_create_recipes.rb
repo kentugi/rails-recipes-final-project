@@ -3,7 +3,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
     create_table :recipes do |t|
       t.string :title
       t.text :description
-      t.text :instruction
+      t.text :instruction, array: true, default: []
       t.integer :prep_time
       t.integer :cook_time
       t.integer :total_time

@@ -91,8 +91,7 @@ end
 
 require "open-uri"
 require "nokogiri"
-
-inputs = ["pasta", "flatbread", "eggs", "burger", "salad", "soup", "sauce", "vegan", "rice"]
+inputs = ["linguine", "mushroom", "kale", "eggs", "spinach", "hamburger buns", "basil", "tomato", "cauliflower"]
 inputs.each do |input|
   base_url = "https://www.loveandlemons.com/?s=#{input}&submit="
   base_html_file = URI.open(base_url).read
@@ -125,11 +124,10 @@ inputs.each do |input|
       title = element.search(".wprm-recipe-name.wprm-block-text-bold")
       description = element.search(".wprm-recipe-summary.wprm-block-text-normal")
       ingredients = element.search(".wprm-recipe-ingredients .wprm-recipe-ingredient")
-      instruction = element.search(".wprm-recipe-instructions")
+      instructions = html_doc.search(".wprm-recipe-instruction-text")
       prep_time = element.search(".wprm-recipe-prep_time-minutes")
       cook_time = element.search(".wprm-recipe-details-minutes")
-      reviews = html_doc.search(".comment-content")
-      review_id = html_doc.search(".comment-author")
+      reviews = html_doc.search('.commentlist li.comment').first(3)
       # total_time = element.search(".ERSTime.ERSTimeRight")
 
       # rating = element.search(".rating")
@@ -151,11 +149,9 @@ inputs.each do |input|
       # puts rating.text.strip
       # puts image.attribute("src").value
       # puts element.attribute("href").value
-      p reviews.text.strip
       recipe = Recipe.new(
         title: title.text.strip,
         description: description.text.strip,
-        instruction: instruction.text.strip,
         prep_time: prep_time.text.strip,
         cook_time: cook_time.text.strip,
         image: image.attribute("src").value
@@ -163,8 +159,21 @@ inputs.each do |input|
       if recipe.cook_time && recipe.prep_time
         recipe.total_time = (recipe.prep_time + recipe.cook_time)
       end
+      instructions.each do |instruction|
+        recipe.instruction << instruction.text.strip
+      end
       recipe.save!
 
+      reviews.each do |review|
+        review_content = review.search(".comment-content")
+        review_username = review.search(".comment-author")
+      review_new = Review.new(
+        body: review_content.text.strip,
+        username: review_username.text.strip,
+        recipe: recipe
+      )
+      review_new.save!
+      end
       recipe_ingredients.each do |ingredient|
         i = Ingredient.find_or_create_by(label: ingredient[:label].capitalize)
 
