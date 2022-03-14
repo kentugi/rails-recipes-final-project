@@ -12,7 +12,7 @@ class BookmarksController < ApplicationController
   end
 
   def index
-    @bookmark = Bookmark.where(user: current_user)
+    @bookmarks = Bookmark.where(user: current_user)
   end
 
   def destroy

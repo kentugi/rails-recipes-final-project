@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get "/components", to: "pages#components"
   resources :recipes, only: [:index, :show] do
-    resources :bookmarks, only: [:new, :create, :index]
+    resources :bookmarks, only: [:new, :create]
   end
 
-  resources :bookmarks, only: [:destroy]
+  resources :bookmarks, only: [:index, :destroy]
 end
