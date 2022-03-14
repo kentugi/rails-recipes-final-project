@@ -1,0 +1,17 @@
+  <h1>My recipes libarary</h1>
+  <% if @bookmarks.any? %>
+  <div class="show-container">
+    <% @bookmarks.each do |bookamrk| %>
+    <div class="show-recipe-cards">
+      <div class="show-recipe-body">
+        <h2 class="show-recipe card-circle subtle">01</h2>
+        <h3 class="show-card-title"><%= recipe.title.truncate(25) %></h3>
+        <p class="show-card-description"><%= recipe.description.truncate(70) %></p>
+      </div>
+      <%= image_tag(recipe.image, :alt => "") class: "card-media" /> %>
+    </div>
+  <% end %>
+  <% else %>
+    <h2>You don't have any saved recipes.</h2>
+<% end %>
+</div>
