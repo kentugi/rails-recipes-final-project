@@ -4,10 +4,11 @@ class Recipe < ApplicationRecord
   has_many :reviews
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
+  # serialize :instruction, Array
 
   validates :title, presence: true
   # validates :description, presence: true
-  validates :instruction, presence: true
+  # validates :instruction, presence: true
   # validates :prep_time, presence: true
   # validates :cook_time, presence: true
   # validates :total_time, presence: true
@@ -15,6 +16,7 @@ class Recipe < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_label,
+  against: [ :title ],
     associated_against: {
       ingredients: [:label]
     },

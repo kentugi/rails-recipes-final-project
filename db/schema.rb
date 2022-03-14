@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_03_10_070126) do
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.text "instruction"
+    t.text "instruction", default: [], array: true
     t.integer "prep_time"
     t.integer "cook_time"
     t.integer "total_time"
@@ -67,8 +67,9 @@ ActiveRecord::Schema.define(version: 2022_03_10_070126) do
     t.string "header"
     t.text "body"
     t.integer "rating"
+    t.string "username"
     t.bigint "recipe_id", null: false
-    t.bigint "user_id", null: false #optional
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
