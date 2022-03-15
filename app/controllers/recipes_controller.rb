@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     if params[:recipe]
+      session[:query] = params[:recipe][:label]
       @recipes = Recipe.search_by_label(params[:recipe][:label])
     else
       @recipes = Recipe.all
