@@ -21,3 +21,10 @@
   justify-content: space-between;
   margin-top: 16px;
 }
+
+
+.index-search-bar {
+  .select2-container--default .select2-selection--multiple {
+    height: 5vh;
+  }
+}
