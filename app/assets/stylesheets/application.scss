@@ -13,3 +13,12 @@
 @import "pages/index";
 
 @import "select2/dist/css/select2.min";
+
+
+a {
+  text-decoration: none !important;
+  color: #525DB1;
+  // &:hover {
+  //   color: #241F20;
+  // }
+}

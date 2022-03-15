@@ -1,20 +1,20 @@
 <div class="row justify-content-center index-cards-background">
-  <h1 class="results-h2">Results</h1>
-  <% @recipes.each do |recipe| %>
+    <h1 class="results-h2">Results</h1>
+    <% @recipes.each do |recipe| %>
     <div class="index-recipes-card col-lg-2 mx-2 mb-3" id="bookmark-hover-<%= recipe.id %>">
       <%= link_to recipe_path(recipe) do %>
         <div class="index-image-div">
           <%= image_tag recipe.image, class: "index-recipe-image" %>
         </div>
-        <div class="recipe-content">
+        <div class="index-recipe-content">
           <h3 class="index-recipe-title"><%=recipe.title.truncate(25)%></h3>
           <h2 class="index-recipe-desc"><%=recipe.description.truncate(70)%></h2>
           <div class="link-bookmark">
             <p class="mb-0 timer-text"><i class="far fa-clock index-recipe-timer"></i> <%= recipe.total_time || recipe.cook_time %> mins</p>
+            <%= render 'bookmarks/bookmark', recipe: recipe %>
           </div>
         </div>
       <% end %>
-      <%= render 'bookmarks/bookmark', recipe: recipe %>
     </div>
-  <% end %>
+    <% end %>
 </div>
