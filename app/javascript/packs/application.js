@@ -15,3 +15,30 @@ ActiveStorage.start()
 import "bootstrap";
 
 import "controllers"
+
+
+Turbolinks.scroll = {};
+
+document.addEventListener("turbolinks:load", ()=> {
+
+  const elements = document.querySelectorAll("[data-turbolinks-scroll]");
+
+  elements.forEach(function(element){
+
+    element.addEventListener("click", ()=> {
+      console.log(document.scrollingElement.scrollTop)
+      Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
+    });
+
+    element.addEventListener("submit", ()=> {
+      Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
+    });
+
+  });
+
+  // if (Turbolinks.scroll['top']) {
+  document.scrollingElement.scrollTo(0, Turbolinks.scroll['top']);
+  // }
+
+  Turbolinks.scroll = {};
+});
