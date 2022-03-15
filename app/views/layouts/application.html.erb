@@ -11,51 +11,48 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400&family=Montserrat&display=swap" rel="stylesheet">
   </head>
 
-<body>
+  <body class="bg-white">
     <div class="logo-header ms-4 me-4">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2">
-      <%= link_to root_path do %>
-        <%= image_tag'blue-basket-nav-logo-01.png' %>
+      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2">
+        <%= link_to root_path do %>
+          <%= image_tag'blue-basket-nav-logo-01.png' %>
+        <% end %>
+        <%# <div class="navigation-links col-md-3 py-2 text-end"> %>
+          <%# <%= if user_signed_in? %>
+            <%# <%= "My Recipes", bookings_path %>
+            <%= link_to "Log out", destroy_user_session_path(current_user), method: :delete  %>
+          <%# <% else %>
+            <%= link_to "Login", user_session_path  %>
+            <%= link_to "Get Started", new_user_registration_path  %>
+          <%# <% end %>
+        <%# </div> %>
+      </header>
+    </div>
+    <%= yield %>
+    <div class="footer d-flex justify-content-around">
+      <div class="footer-links">
+        <p>Follow Us</p>
+        <div class="footer-smm d-flex justify-content-around">
+          <a href="#"><i class="fab fa-instagram smm-icon"></i></a>
+          <a href="#"><i class="fab fa-facebook smm-icon"></i></a>
+          <a href="#"><i class="fab fa-twitter smm-icon"></i></a>
+        </div>
+      </div>
+      <div class="footer-newsletter-form-hldr">
+        <%= simple_form_for :user do |f| %>
+        <%= f.input :email %>
+        <%= f.button :submit %>
       <% end %>
-      <%# <div class="navigation-links col-md-3 py-2 text-end"> %>
-        <%# <%= if user_signed_in? %>
-          <%# <%= "My Recipes", bookings_path %>
-          <%= link_to "Log out", destroy_user_session_path(current_user), method: :delete  %>
-        <%# <% else %>
-          <%= link_to "Login", user_session_path  %>
-          <%= link_to "Get Started", new_user_registration_path  %>
-        <%# <% end %>
-      <%# </div> %>
-    </header>
-  </div>
-      <%= yield %>
-<body>
-
-<%# //-----------------------------------------------------------// %>
-
-<div class="row-fluid row-new">
-<div class="join span2 col-md-2 outer-spacer" style="display: none;"></div>
-<div class="span3 col-md-3">
-<h3 class="epsilon footer-title">
-<div>
-  <footer class="footer d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
-Follow Us
-</h3>
-  <ul class="socials d-flex">
-    <li><i class="fab fa-facebook-square"></i></li>
-    <li><i class="fab fa-twitter-square"></i></li>
-    <li><i class="fab fa-instagram-square"></i></li>
-  </ul>
-</div>
-Recipes, Tips & More
-</h3>
-<%# <div class="footer-newsletter-form-hldr">
-  <%= simple_form_for users_path, :url => users_path, method: :get, html: { class: 'd-flex form-inline' } do |f| %>
-    <%# <%= f.input :email, placeholder: "Email Address", label: false %>
-    <%# <%= f.submit "Sign Up", class: "btn ghost sign-up" %>
-  <%# <% end %>
-<%# </div> %>
+      </div>
+      <div class="footer-copyright">
+        <p>About us</p>
+        <p>Contact us</p>
+        <p>BlueBasket 2022</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 .home-banner {
   background-size: cover;
   background-position: center;
-  padding: 230px;
+  padding: 267px;
   width: 100%;
   background-image: url("https://glowbattletour.com/wp-content/uploads/2018/12/398529-PCOFKE-482-min-1160x773.jpg");
 }
@@ -21,12 +21,6 @@
 .select2-container--default .select2-selection--multiple {
   height: 10vh;
 }
-// .home-banner p {
-//   font-size: 20px;
-//   color: white;
-//   opacity: .7;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-// }
 
 
 .home-banner-content {
@@ -49,11 +43,31 @@
 
 .popular-recipes-row {
   background-color: #fdfbea;
-  height: 440px;
+  height: 100%;
   width: 100vw;
   padding: 20px;
   margin-top: 10px;
 
+}
+
+.popular-recipe-header {
+  margin-bottom: 27px;
+}
+
+.row {
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  margin-top: 72px;
+  margin-bottom: 52px;
+}
+
+.smm-icon {
+  font-size: 24px;
+  color: black;
+  padding-right: 14px;
 }
 
 .popular-recipes-row {
