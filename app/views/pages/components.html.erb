@@ -69,13 +69,11 @@
 <%# //------------------------------------------------------// %>
 
 <%# // RECIPE CARDS FOR SAVED PAGE // %>
-<div class="bookmark-container">
-  <div class="bookmark-recipe-cards">
-    <div class="bookmark-recipe-body">
-      <h2 class="bookmark-recipe card-circle subtle">01</h2>
-      <h3 class="bookmark-card-title">New Brunch Recipe</h3>
-      <p class="bookmark-card-description">These last few weeks I have been working hard on a new brunch recipe for you all.</p>
-    </div>
-    <img src="https://s15.postimg.cc/temvv7u4r/recipe.jpg" alt="" class="card-media" />
-  </div>
+
+<div class="saved-recipe-card">
+  <div class="saved-bookmark"><i class="far fa-bookmark"></i></a>
+		<p><%= image_tag @recipe.image, class: "saved-recipe-image" %></p>
+		<h3 class="saved-recipe-title"><%=recipe.title.truncate(25)%></h3>
+		<p class="saved-recipe-desc"><%=recipe.description.truncate(70)%></p>
+    <%= link_to recipe_path %>Let's Cook</a>
 </div>
