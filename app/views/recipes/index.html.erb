@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <h1 class="results-h2">Results</h1>
   <% @recipes.each do |recipe| %>
-    <div class="index-recipes-card col-lg-2 mx-2 mb-3">
+    <div class="index-recipes-card col-lg-2 mx-2 mb-3" id="bookmark-hover-<%= recipe.id %>">
       <%= link_to recipe_path(recipe) do %>
         <div class="index-image-div">
           <%= image_tag recipe.image, class: "index-recipe-image" %>
@@ -14,16 +14,7 @@
           </div>
         </div>
       <% end %>
-      <% bookmark = Bookmark.find_by(user:current_user, recipe:recipe) %>
-      <% if bookmark %>
-        <%= link_to bookmark_path(bookmark), method: :delete do %>
-          <p class="index-recipe-bookmark"><i class="fas fa-bookmark"></i></p>
-        <% end %>
-      <% else %>
-        <%= link_to recipe_bookmarks_path(recipe), method: :post do %>
-          <p class="index-recipe-bookmark"><i class="far fa-bookmark"></i></p>
-        <% end %>
-      <% end %>
+      <%= render 'bookmarks/bookmark', recipe: recipe %>
     </div>
   <% end %>
 </div>
