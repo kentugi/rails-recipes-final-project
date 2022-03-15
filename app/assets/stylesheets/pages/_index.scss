@@ -10,3 +10,21 @@
   font-size: 24px;
   font-weight: 300;
 }
+
+.index-cards-background {
+  background-color: #FDFBEA;
+  ;
+}
+
+.link-bookmark {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+
+.index-search-bar {
+  .select2-container--default .select2-selection--multiple {
+    height: 5vh;
+  }
+}

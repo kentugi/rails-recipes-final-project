@@ -14,7 +14,7 @@
     </div>
     <div class="home-search-bar">
       <%= simple_form_for :recipe, :url => recipes_path, method: :get do |f| %>
-        <%= f.input :label, label: false, collection: Ingredient.all.map { |i| [i.label, i.label]}, input_html: { data: { controller: 'select2' }, multiple: "multiple"} %>
+        <%= f.input :label, label: false, collection: Ingredient.all.map { |i| [i.label, i.label]}, input_html: { data: { controller: 'select2', select2_width_value: "70%" }, multiple: "multiple"} %>
         <%= f.submit "Start cooking", class: "btn ghost start-cooking" %>
       <% end %>
     </div>
