@@ -38,6 +38,11 @@
   color: black;
   text-decoration: none;
 }
+
+.popular-recipes-container {
+  margin-top: 100px;
+  justify-content: center;
+}
 // ------------------------------------------------------------------- //
 
 // RECIPE CARDS FOR INDEX PAGE //
@@ -85,7 +90,7 @@
 
 // ------------------------------------------------------------------- //
 
-// REVIEW CARDS FOR SHOW PAGE //
+// CARDS FOR SHOW PAGE //
 
 .show-column-right-review-card {
   background-color: #FDFBEA;
@@ -126,6 +131,7 @@
   font-size: 16px;
   font-weight: 400;
   margin-left: 30px;
+  margin-top: 20px;
   }
 }
 
@@ -135,7 +141,6 @@
   color: black;
   font-size: 14px;
   font-weight: 200;
-  margin-left: 30px;
   padding: 2px;
   }
 }
@@ -168,7 +173,7 @@
   background-clip: padding-box;
   border: 1px solid #525DB1;
   border-radius: 8px;
-  width: 435px;
+  width: 565px;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -176,13 +181,14 @@
 }
 
 .review-reply-title {
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
 }
 
 .show-recipe-title {
   h1 {
+  padding-top: 20px;
   font-size: 24px;
   font-weight: 400px;
   font-family: 'Montserrat', sans-serif;
@@ -199,6 +205,7 @@
   font-family: 'Bitter', serif;
   color: black;
   font-size: 12px;
+  text-align: center;
 }
 
 .show-column-right-reviews-cards {
@@ -206,12 +213,13 @@
   padding-bottom: 20px;
   padding-right: 20px;
   background-color: #F4F4F4;
-  display: block;
+  // display: block;
   padding-left: 20px;
   padding-top: 20px;
   font-family: 'Montserrat', sans-serif;
   height: 215px;
-  width: 530px;
+  width: 565px;
+  border-radius: 8px;
   p {
     padding: 20px;
     font-size: 14px;
@@ -225,7 +233,15 @@
 // -------------------------DIVS RECIPE SHOW PAGE---------------------------- //
 
 .recipe-container {
-  margin-top: 35px;
-  margin-left: 45px;
-  margin-right: 45px;
+ margin-top: 40px;
+ margin-left: 115px;
+ margin-right: 115px;
+}
+
+.show-column-right-recipe-info {
+  border-style: double;
+  border-width: 5px 0px;
+  border-color: #525DB1;
+
+
 }
