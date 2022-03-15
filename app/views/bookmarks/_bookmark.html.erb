@@ -1,0 +1,10 @@
+  <% bookmark = Bookmark.find_by(user:current_user, recipe:recipe) %>
+  <% if bookmark %>
+    <%= link_to bookmark_path(bookmark), method: :delete, remote: true, data: { 'turbolinks-scroll': false } do %>
+      <p class="index-recipe-bookmark"><i class="fas fa-bookmark text-red" data-hover-bookmark-target="hover"></i></p>
+    <% end %>
+  <% else %>
+    <%= link_to recipe_bookmarks_path(recipe), method: :post, remote: true, data: { 'turbolinks-scroll': false } do %>
+      <p class="index-recipe-bookmark"><i class="far fa-bookmark" data-hover-bookmark-target="hover"></i></p>
+    <% end %>
+  <% end %>
