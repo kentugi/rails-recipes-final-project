@@ -1,17 +1,20 @@
-  <h1>My recipes libarary</h1>
-  <% if @bookmarks.any? %>
-  <div class="show-container">
-    <% @bookmarks.each do |bookmark| %>
-    <div class="show-recipe-cards">
-      <div class="show-recipe-body">
-        <h2 class="show-recipe card-circle subtle">01</h2>
-        <h3 class="show-card-title"><%= bookmark.recipe.title %></h3>
-        <p class="show-card-description"><%= bookmark.recipe.description %></p>
-      </div>
-      <%= image_tag bookmark.recipe.image, :alt => "", class: "card-media" %>
+<% if @bookmarks.any? %>
+  <div class="saved-container">
+    <%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path %>
+    <h1>Saved Recipes</h1>
+    <div class="row justify-content-between">
+      <% @bookmarks.each do |bookmark| %>
+      <div class="saved-recipe-content col-lg-3 mx-2 mb-3">
+        <%= link_to recipe_path(bookmark.recipe.id) do %>
+          <div class="saved-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= image_path bookmark.recipe.image %> ">
+            <h3 class="saved-recipe-title"><%= bookmark.recipe.title %></h3>
+          </div>
+        <% end %>
     </div>
-  <% end %>
-  <% else %>
-    <h2>You don't have any saved recipes.</h2>
-<% end %>
-</div>
+      <% end %>
+      <% else %>
+        <h2>You don't have any saved recipes.</h2>
+    <% end %>
+      </div>
+    </div>
+  </div>

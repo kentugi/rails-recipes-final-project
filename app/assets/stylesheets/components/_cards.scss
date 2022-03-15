@@ -43,6 +43,15 @@
   margin-top: 100px;
   justify-content: center;
 }
+
+.popular-recipes-row {
+  background-color: #FDFBEA;
+  height: 440px;
+  width: 100vw;
+  padding: 20px;
+  margin-top: 75px;
+}
+
 // ------------------------------------------------------------------- //
 
 // RECIPE CARDS FOR INDEX PAGE //
@@ -132,6 +141,7 @@
   font-size: 16px;
   font-weight: 400;
   margin-left: 30px;
+  padding-top: 10px;
   }
 }
 
@@ -184,7 +194,7 @@
   background-clip: padding-box;
   border: 1px solid #525DB1;
   border-radius: 8px;
-  width: 565px;
+  width: 650px;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -221,20 +231,22 @@
 
 .show-column-right-reviews-cards {
   margin-bottom: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  background-color: #F4F4F4;
+  margin-top: 20px;
+  // padding-bottom: 20px;
+  // padding-right: 20px;
   // display: block;
-  padding-left: 20px;
-  padding-top: 20px;
+  // padding-left: 20px;
+  // padding-top: 20px;
   font-family: 'Montserrat', sans-serif;
   height: 215px;
-  width: 565px;
+  width: 650px;
   border-radius: 8px;
   p {
     padding: 20px;
     font-size: 14px;
   }
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .recipe-image {
@@ -253,6 +265,47 @@
   border-style: double;
   border-width: 5px 0px;
   border-color: #525DB1;
+  width: 650px;
+  padding: 20px 30px;
+  // border-radius: 8px;
+
+}
+
+.show-popular-recipes-cards-container {
+  margin-top: 100px;
+}
 
 
+// -------------------------SAVED RECIPES PAGE---------------------------- //
+
+.saved-card-category {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.saved-recipe-title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.saved-container {
+  margin-left: 80px;
+  margin-right: 215px;
+  h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 30px;
+  }
 }
