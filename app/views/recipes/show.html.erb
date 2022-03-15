@@ -1,117 +1,122 @@
 <div class="recipe-container row">
-  <div class="recipe-show-columns-image-ingredients col-6">
+  <div class="recipe-show-columns-image-ingredients col-5">
       <div class="show-recipe-img">
         <p><%= image_tag @recipe.image, class: "recipe-image" %></p>
       </div>
       <div class="show-column-left-ingredients">
         <div class="show-column-left-ingredients-title-notes">
           <h2>INGREDIENTS</h2>
-          <p>'add note' link will be here</p>
         </div>
         <div class="show-column-left-ingredients-labels">
           <ul>
             <p>
             <% @recipe_ingredients.each do |recipe_ingredient| %>
-              <li><%= recipe_ingredient.amount %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.label %></li>
+              <ul>
+                <li><%= recipe_ingredient.amount %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.label %></li>
+              </ul>
             <% end %>
             </p>
           </ul>
         </div>
       </div>
     </div>
-  <div class="recipe-info-instructions col-6">
+  <div class="recipe-info-instructions col-7">
     <div class="show-column-right-recipe-info">
       <div class="show-column-right-recipe-bio">
-          <div class="recipe-bio-title-rating-icons">
-            <div class="recipe-bio-title-rating">
-            </div>
-            <div class="show-recipe-title">
-              <h1><%= @recipe.title %></h1>
-            </div>
-            <div class="recipe-bio-icons">
-              <p>Stars icons will be here</p>
-              <p>Icons will be here</p>
-            </div>
+        <div class="recipe-bio-title-rating-icons">
+          <div class="recipe-bio-title-rating">
           </div>
-          <div class="recipe-bio-description">
-            <p><%= @recipe.description %></p>
+          <div class="show-recipe-title">
+            <%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path %>
+            <h1><%= @recipe.title %></h1>
           </div>
-          <div class="recipe-bio-time">
-            <p>Prep Time: <%= @recipe.prep_time %> min Cook Time: <%= @recipe.cook_time %> min Total Time: <%= @recipe.total_time %> min</p>
+          <div class="recipe-bio-icons">
+            <p><i class="far fa-star "></i><i class="far fa-star "></i><i class="far fa-star "></i><i class="far fa-star "></i><i class="far fa-star "></i></p>
+            <p><i class="far fa-bookmark"></i> <i class="fas fa-print"></i> <i class="fas fa-share-alt"></i></p>
           </div>
+        </div>
+        <div class="recipe-bio-description">
+          <p><%= @recipe.description %></p>
+        </div>
+        <div class="recipe-bio-time">
+          <p>Prep Time: <%= @recipe.prep_time %> min Cook Time: <%= @recipe.cook_time %> min Total Time: <%= @recipe.total_time %> min</p>
+        </div>
       </div>
     </div>
     <div class="show-column-right-instructions">
       <h2>INSTRUCTIONS</h2>
-        <ol>
-          <% @recipe.instruction.each do |instruction|%>
-            <li><%= instruction %></li>
-          <% end %>
-        </ol>
+      <ol>
+        <% @recipe.instruction.each do |instruction|%>
+          <li><%= instruction %></li>
+        <% end %>
+      </ol>
     </div>
     <div class="show-column-left-add-review-form col-6">
       <div class="search-form-control form-group">
-      <h3 id="reply-title" class="review-reply-title">Leave a Review:</h3>
-      <%= simple_form_for [@recipe, @review], html: { class: "review-form" }, method: :post do |r| %>
+        <h3 id="reply-title" class="review-reply-title">Leave a Review:</h3>
+        <%= simple_form_for [@recipe, @review], html: { class: "review-form" }, method: :post do |r| %>
           <%= r.input :body, placeholder: "Leave your review here", label: false, html: { class: "body-form" } %>
           <%= r.input :rating, placeholder: "Rating", label: false, html: { class: "rating-form" } %>
           <%= r.submit "Submit Review", class: "btn ghost submit-comment" %>
         <% end %>
       </div>
-    </form>
-  </div>
+    </div>
   <div class="show-column-right-reviews-cards col-6">
     <% @reviews.each do |review| %>
       <div class="show-column-right-review-card">
         <% if review.user.nil? %>
-        <div class="review-username">
-          <p> <%= review.username %></p>
+          <div class="review-username">
+            <p> <%= review.username %></p>
           </div>
         <% else %>
-        <div class="review-created-at">
-          <p> <%= review.user.name %> <%= review.created_at.strftime("%m.%d.%Y") %> </p>
-        </div>
+          <div class="review-created-at">
+            <p> <%= review.user.name %> <%= review.created_at.strftime("%m.%d.%Y") %> </p>
+          </div>
         <% end %>
         <div class="review-body">
-        <p> <%= review.body %> </p>
+          <p> <%= review.body %> </p>
         </div>
       </div>
     <% end %>
   </div>
+  </div>
 </div>
-<div class="popular-recipes-container">
-  <div class="row">
-    <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+<div class="show-popular-recipes-cards-container popular-recipes-row">
+  <h2 class="popular-recipe-header">Popular Recipes</h2>
+  <div class="container">
+    <div class="row">
+      <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6  mx-2 mb-2">
         <div class="popular-image-div">
           <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/07/cherry-tomato-pasta-1.jpg" class="popular-recipe-image">
         </div>
         <div class="recipe-content">
           <h2 class="popular-recipe-title">Cherry Tomato Pasta</h2>
         </div>
-    </div>
-    <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+      </div>
+      <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6  mx-2 mb-2">
         <div class="popular-image-div">
           <img src="https://cdn.loveandlemons.com/wp-content/uploads/2018/08/IMG_13094-cropped.jpg" class="popular-recipe-image">
         </div>
         <div class="recipe-content">
           <h2 class="popular-recipe-title">Summer Asian Slaw</h2>
         </div>
-    </div>
-    <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+      </div>
+      <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6  mx-2 mb-2">
         <div class="popular-image-div">
           <img src="https://cdn.loveandlemons.com/wp-content/uploads/2015/08/IMG_2015_08_13_05677-cropped.jpg" class="popular-recipe-image">
         </div>
         <div class="recipe-content">
           <h2 class="popular-recipe-title">Portabello Mushroom Tacos</h2>
         </div>
-    </div>
-    <div class="popular-recipes-card col-lg-2 mx-2 mb-2">
+      </div>
+      <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6 mx-2 mb-2">
         <div class="popular-image-div">
           <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/04/IMG_17224-cropped-1-580x732.jpg" class="popular-recipe-image">
         </div>
         <div class="recipe-content">
           <h2 class="popular-recipe-title">Falafel Flatbread</h2>
         </div>
+      </div>
     </div>
   </div>
 </div>

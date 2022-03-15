@@ -84,10 +84,13 @@
   padding-top: 50px;
   font-family: "Montserrat", "sans-serif";
   font-size: 14px;
+  ul {
+    list-style: none;
+  }
 }
 
 ul {
-  list-style: none;
+  // list-style: none;
 }
 
 li {

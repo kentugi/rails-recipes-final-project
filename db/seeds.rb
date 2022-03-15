@@ -130,6 +130,7 @@ inputs.each do |input|
       prep_time = element.search(".wprm-recipe-prep_time-minutes")
       cook_time = element.search(".wprm-recipe-details-minutes")
       reviews = html_doc.search('.commentlist li.comment').first(3)
+      ratings = element.search(".wprm-recipe-rating")
       # total_time = element.search(".ERSTime.ERSTimeRight")
 
       # rating = element.search(".rating")
