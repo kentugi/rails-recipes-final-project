@@ -22,6 +22,9 @@
   height: 10vh;
 }
 
+.selection span textarea{
+  min-height:29px;
+ }
 
 .home-banner-content {
   text-align: center;
@@ -67,7 +70,11 @@
 .smm-icon {
   font-size: 24px;
   color: black;
-  padding-right: 14px;
+  margin-right: 14px;
+  padding:7px;
+  border-radius: 50%;
+  border: 1px solid black;
+
 }
 
 .popular-recipes-row {
@@ -89,9 +96,6 @@
   }
 }
 
-ul {
-  // list-style: none;
-}
 
 li {
   padding: 10px;
@@ -131,4 +135,8 @@ li {
   background-color: #FDFBEA;
   padding-top: 30px;
   margin-top: 20px;
+}
+
+.form-control {
+  width: 330px;
 }
