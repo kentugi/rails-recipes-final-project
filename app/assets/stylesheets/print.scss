@@ -1,0 +1,9 @@
+@media print {
+  @page {
+    // margin: 0px;
+  }
+
+  .show-column-right-reviews-cards, .show-column-left-add-review-form, .show-popular-recipes-cards-container-popular-recipes-row {
+    display: none;
+  }
+}

@@ -1,6 +1,6 @@
 <% if @bookmarks.any? %>
   <div class="saved-container">
-    <%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path %>
+    <p class="link-to-links"><%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path %></p>
     <h1>Saved Recipes</h1>
     <div class="row justify-content-between">
       <% @bookmarks.each do |bookmark| %>
