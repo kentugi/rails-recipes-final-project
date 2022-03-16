@@ -170,12 +170,12 @@ inputs.each do |input|
       reviews.each do |review|
         review_content = review.search(".comment-content")
         review_username = review.search(".comment-author")
-      review_new = Review.new(
-        body: review_content.text.strip,
-        username: review_username.text.strip,
-        recipe: recipe
-      )
-      review_new.save!
+        review_new = Review.new(
+          body: review_content.text.strip,
+          username: review_username.text.strip,
+          recipe: recipe,
+        )
+        review_new.save!
       end
       recipe_ingredients.each do |ingredient|
         i = Ingredient.find_or_create_by(label: ingredient[:label].capitalize)
