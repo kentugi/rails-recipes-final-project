@@ -23,4 +23,10 @@ class Recipe < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
+  def self.random_recipes
+    random_recipes = Recipe.all
+    random_recipes.sample(4)
   end
+
+end

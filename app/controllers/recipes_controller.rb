@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
     @recipe_ingredients = @recipe.recipe_ingredients
     @review = Review.new
     @reviews = @recipe.reviews.limit(4)
+
     # @ingredient_list = []
     # @all_ingredients.each do |ingredient|
     #   if ingredient.recipe_id == @recipe.id
@@ -25,4 +26,5 @@ class RecipesController < ApplicationController
     # end
     # @instructions_array = @recipe.instruction
   end
+
 end
