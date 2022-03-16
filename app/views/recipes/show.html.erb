@@ -108,42 +108,22 @@
   </div>
   </div>
 </div>
-<div class="show-popular-recipes-cards-container popular-recipes-row">
+<div class="home-popular-recipes-cards-container popular-recipes-row">
   <h2 class="popular-recipe-header">Popular Recipes</h2>
   <div class="container">
     <div class="row">
+      <% @random_recipes.each do |random_recipe| %>
       <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6  mx-2 mb-2">
+        <%= link_to recipe_path(random_recipe) do %>
         <div class="popular-image-div">
-          <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/07/cherry-tomato-pasta-1.jpg" class="popular-recipe-image">
-        </div>
-        <div class="recipe-content">
-          <h2 class="popular-recipe-title">Cherry Tomato Pasta</h2>
-        </div>
+            <%= image_tag random_recipe.image, class:"popular-recipe-image" %>
+          </div>
+          <div class="recipe-content">
+            <h2 class="popular-recipe-title"><%=random_recipe.title.truncate(25)%></h2>
+          </div>
+        <% end %>
       </div>
-      <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6  mx-2 mb-2">
-        <div class="popular-image-div">
-          <img src="https://cdn.loveandlemons.com/wp-content/uploads/2018/08/IMG_13094-cropped.jpg" class="popular-recipe-image">
-        </div>
-        <div class="recipe-content">
-          <h2 class="popular-recipe-title">Summer Asian Slaw</h2>
-        </div>
-      </div>
-      <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6  mx-2 mb-2">
-        <div class="popular-image-div">
-          <img src="https://cdn.loveandlemons.com/wp-content/uploads/2015/08/IMG_2015_08_13_05677-cropped.jpg" class="popular-recipe-image">
-        </div>
-        <div class="recipe-content">
-          <h2 class="popular-recipe-title">Portabello Mushroom Tacos</h2>
-        </div>
-      </div>
-      <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6 mx-2 mb-2">
-        <div class="popular-image-div">
-          <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/04/IMG_17224-cropped-1-580x732.jpg" class="popular-recipe-image">
-        </div>
-        <div class="recipe-content">
-          <h2 class="popular-recipe-title">Falafel Flatbread</h2>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
