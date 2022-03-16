@@ -8,14 +8,17 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
-
 import "bootstrap";
 
 import "controllers"
-import "social-share-button"
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+// import "social-share-button"
 
 
 if (location.pathname === '/recipes') {
@@ -46,3 +49,5 @@ document.addEventListener("turbolinks:load", ()=> {
 
   Turbolinks.scroll = {};
 });
+
+app/javascript/packs/application.js

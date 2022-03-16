@@ -42,6 +42,7 @@
 .popular-recipes-container {
   margin-top: 100px;
   justify-content: center;
+  margin-top: 85px;
 }
 
 .popular-recipes-row {
@@ -49,8 +50,13 @@
   height: 440px;
   width: 100vw;
   padding: 20px;
-  margin-top: 75px;
+  margin-top: 85px;
 }
+
+// .home-popular-recipes-cards-container{
+//   margin-top:80px;
+//   margin-bottom:60px;
+//  }
 
 // ------------------------------------------------------------------- //
 
@@ -234,6 +240,10 @@
   color: black;
   font-size: 12px;
   text-align: center;
+  word-spacing:0.5px;
+  letter-spacing:0.5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .show-column-right-reviews-cards {
@@ -281,6 +291,7 @@
  margin-top: 40px;
  margin-left: 115px;
  margin-right: 115px;
+ margin-bottom: 80px;
 }
 
 .show-column-right-recipe-info {
@@ -330,4 +341,10 @@
   color: black;
   margin-bottom: 30px;
   }
+}
+
+
+.review_rating {
+  // padding-bottom:44px;
+  margin-bottom: 44px;
 }
