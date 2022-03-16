@@ -16,43 +16,45 @@
   </head>
 
   <body class="bg-white">
-    <div class="logo-header ms-4 me-4">
-      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2">
-        <%= link_to root_path do %>
-          <%= image_tag'blue-basket-nav-logo-01.png' %>
-        <% end %>
-        <%# <div class="navigation-links col-md-3 py-2 text-end"> %>
-          <%# <%= if user_signed_in? %>
-            <%# <%= "My Recipes", bookings_path %>
-            <%= link_to "Log out", destroy_user_session_path(current_user), method: :delete  %>
-          <%# <% else %>
-            <%= link_to "Login", user_session_path  %>
-            <%= link_to "Get Started", new_user_registration_path  %>
-          <%# <% end %>
-        <%# </div> %>
-      </header>
+    <div class="container">
+      <div class="logo-header ms-4 me-4">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2">
+          <%= link_to root_path do %>
+            <%= image_tag'blue-basket-nav-logo-01.png' %>
+          <% end %>
+          <div class="navigation-links col-md-3 py-2 text-end">
+            <% if user_signed_in? %>
+              <%= link_to "Log out", destroy_user_session_path(current_user), method: :delete, class:"btn ghost log-in" %>
+              <%= link_to "My Recipes", bookmarks_path, class:"btn ghost get-started" %>
+            <% else %>
+              <p class="btn ghost log-in"> <%= link_to "Log in", user_session_path  %> </p>
+              <p class="btn ghost get-started"> <%= link_to "Sign up", new_user_registration_path  %> </p>
+            <% end %>
+          </div>
+        </header>
+      </div>
     </div>
     <%= yield %>
-    <div class="footer d-flex justify-content-around">
-      <div class="footer-links">
-        <p>Follow Us</p>
-        <div class="footer-smm d-flex justify-content-around">
-          <a href="#"><i class="fab fa-instagram smm-icon"></i></a>
-          <a href="#"><i class="fab fa-facebook smm-icon"></i></a>
-          <a href="#"><i class="fab fa-twitter smm-icon"></i></a>
+      <div class="footer d-flex justify-content-around">
+        <div class="footer-links">
+          <p>Follow Us</p>
+          <div class="footer-smm d-flex justify-content-around">
+            <a href="#"><i class="fab fa-instagram smm-icon"></i></a>
+            <a href="#"><i class="fab fa-facebook smm-icon"></i></a>
+            <a href="#"><i class="fab fa-twitter smm-icon"></i></a>
+          </div>
+        </div>
+        <div class="footer-newsletter-form-hldr">
+          <%= simple_form_for :user do |f| %>
+          <%= f.input :email %>
+          <%= f.button :submit %>
+        <% end %>
+        </div>
+        <div class="footer-copyright">
+          <p>About us</p>
+          <p>Contact us</p>
+          <p>BlueBasket 2022</p>
         </div>
       </div>
-      <div class="footer-newsletter-form-hldr">
-        <%= simple_form_for :user do |f| %>
-        <%= f.input :email %>
-        <%= f.button :submit %>
-      <% end %>
-      </div>
-      <div class="footer-copyright">
-        <p>About us</p>
-        <p>Contact us</p>
-        <p>BlueBasket 2022</p>
-      </div>
-    </div>
   </body>
 </html>

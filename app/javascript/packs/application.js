@@ -17,7 +17,10 @@ import "bootstrap";
 import "controllers"
 
 
-Turbolinks.scroll = {};
+if (location.pathname === '/recipes') {
+  Turbolinks.scroll = {};
+}
+
 
 document.addEventListener("turbolinks:load", ()=> {
 

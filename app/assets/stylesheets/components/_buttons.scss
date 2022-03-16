@@ -4,7 +4,7 @@
   color: black;
   background-color: #e8c55a;
   border: none;
-  border-radius: 80px;
+  border-radius: 8px;
   font-family: 'Montserrat', sans-serif;
   font-weight:300;
   font-size: 20px;
@@ -24,14 +24,17 @@
 }
 
 .get-started {
-  color: black;
   background-color: #e8c55a;
   border: none;
-  border-radius: 80px;
+  border-radius: 8px;
   font-family: 'Montserrat', sans-serif;
   font-weight:300;
+  height: 36px;
+  width: 120px;
   font-size: 14px;
-  padding: 10px 20px 10px 20px;
+    a {
+      color: black;
+    }
 }
 
 .sign-up {
@@ -46,14 +49,17 @@
 }
 
 .log-in {
-  color: black;
-  background-color: #e8c55a;
-  border: none;
+  border: 1px solid #85ac8d;
   border-radius: 8px;
   font-family: 'Montserrat', sans-serif;
   font-weight:300;
+  height: 36px;
+  width: 90px;
+  margin-right: 12px;
   font-size: 14px;
-  padding: 10px 20px 10px 20px;
+      a {
+      color: rgb(128, 128, 128);
+    }
 }
 
 .submit-comment {
