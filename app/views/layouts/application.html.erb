@@ -37,18 +37,21 @@
     <%= yield %>
       <div class="footer d-flex justify-content-around">
         <div class="footer-links">
-          <p>Follow Us</p>
+          <p style="text-align: center;">Follow Us</p>
           <div class="footer-smm d-flex justify-content-around">
-            <a href="#"><i class="fab fa-instagram smm-icon"></i></a>
-            <a href="#"><i class="fab fa-facebook smm-icon"></i></a>
-            <a href="#"><i class="fab fa-twitter smm-icon"></i></a>
+            <i class="fab fa-instagram smm-icon"></i>
+            <i class="fab fa-facebook smm-icon"></i>
+            <i class="fab fa-twitter smm-icon"></i>
           </div>
         </div>
         <div class="footer-newsletter-form-hldr">
+          <p style="text-align: center;">Recipes, tips & more</p>
           <%= simple_form_for :user do |f| %>
-          <%= f.input :email %>
-          <%= f.button :submit %>
-        <% end %>
+            <div class="d-flex">
+              <%= f.input :email, label: false, input_html: { class: "mb-0 h-100 subscription-input" }, placeholder: "E-mail address" %>
+              <%= f.button :submit, "Subscribe", class: "btn ghost sign-up" %>
+            </div>
+          <% end %>
         </div>
         <div class="footer-copyright">
           <p>About us</p>

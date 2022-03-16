@@ -2,7 +2,7 @@
     <%= simple_form_for :recipe, :url => recipes_path, method: :get do |f| %>
       <div class="index-search-bar d-flex w-100">
           <%= f.input :label, label: false, collection: Ingredient.all.map { |i| [i.label, i.label]}, input_html: { data: { controller: 'select2', select2_selected_value: params[:recipe] ? params[:recipe][:label] : [], select2_width_value: "50vw" }, multiple: "multiple"} %>
-          <%= f.submit "Add", class: "btn ghost start-cooking ", style: "margin-top:0px; margin-left: 10px; height: 44px;" %>
+          <%= f.submit "Add", class: "btn ghost start-cooking ", style: "margin-top:0px; margin-left: 10px; height: 45px;" %>
       </div>
     <% end %>
 </div>
