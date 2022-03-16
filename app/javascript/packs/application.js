@@ -15,6 +15,7 @@ ActiveStorage.start()
 import "bootstrap";
 
 import "controllers"
+import "social-share-button"
 
 
 if (location.pathname === '/recipes') {
