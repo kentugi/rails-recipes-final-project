@@ -18,7 +18,10 @@ import "controllers"
 import "social-share-button"
 
 
-Turbolinks.scroll = {};
+if (location.pathname === '/recipes') {
+  Turbolinks.scroll = {};
+}
+
 
 document.addEventListener("turbolinks:load", ()=> {
 

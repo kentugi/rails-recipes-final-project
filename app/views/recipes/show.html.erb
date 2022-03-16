@@ -27,7 +27,7 @@
           <div class="recipe-bio-title-rating">
           </div>
           <div class="show-recipe-title">
-            <p class="link-to-links"><%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path %></p>
+            <%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path(recipe: { label: session[:query] }) %>
             <h1><%= @recipe.title %></h1>
           </div>
           <div class="recipe-bio-icons">
@@ -62,6 +62,8 @@
                 </a>
 
               </div>
+              <%= render 'bookmarks/bookmark', recipe: @recipe %>
+              <i class="fas fa-share-alt"></i>
             </p>
           </div>
         </div>

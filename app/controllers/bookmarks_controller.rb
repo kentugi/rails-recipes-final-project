@@ -9,8 +9,11 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.recipe = @recipe
     @bookmark.save
-
-    redirect_to recipes_path(anchor: "bookmark-hover-#{@recipe.id}")
+    if Rails.application.routes.recognize_path(request.referrer)[:action] == "show"
+      redirect_to recipe_path(@recipe)
+    else
+      redirect_to recipes_path(recipe: { label: session[:query] }, anchor: "bookmark-hover-#{@recipe.id}")
+    end
   end
 
   def index
@@ -21,7 +24,11 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     @recipe = @bookmark.recipe
     @bookmark.destroy
-    redirect_to recipes_path(anchor: "bookmark-hover-#{@recipe.id}")
+    if Rails.application.routes.recognize_path(request.referrer)[:action] == "show"
+      redirect_to recipe_path(@recipe)
+    else
+      redirect_to recipes_path(recipe: { label: session[:query] }, anchor: "bookmark-hover-#{@recipe.id}")
+    end
   end
 
 end

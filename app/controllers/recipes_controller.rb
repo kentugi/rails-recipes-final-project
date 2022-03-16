@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     if params[:recipe]
+      session[:query] = params[:recipe][:label]
       @recipes = Recipe.search_by_label(params[:recipe][:label])
     else
       @recipes = Recipe.all
@@ -14,6 +15,7 @@ class RecipesController < ApplicationController
     @recipe_ingredients = @recipe.recipe_ingredients
     @review = Review.new
     @reviews = @recipe.reviews.limit(4)
+
     # @ingredient_list = []
     # @all_ingredients.each do |ingredient|
     #   if ingredient.recipe_id == @recipe.id
@@ -24,4 +26,5 @@ class RecipesController < ApplicationController
     # end
     # @instructions_array = @recipe.instruction
   end
+
 end

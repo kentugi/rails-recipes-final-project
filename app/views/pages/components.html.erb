@@ -69,11 +69,11 @@
 <%# //------------------------------------------------------// %>
 
 <%# // RECIPE CARDS FOR SAVED PAGE // %>
-
+<%#
 <div class="saved-recipe-card">
   <div class="saved-bookmark"><i class="far fa-bookmark"></i></a>
 		<p><%= image_tag @recipe.image, class: "saved-recipe-image" %></p>
-		<h3 class="saved-recipe-title"><%=recipe.title.truncate(25)%></h3>
-		<p class="saved-recipe-desc"><%=recipe.description.truncate(70)%></p>
-    <%= link_to recipe_path %>Let's Cook</a>
-</div>
+		<%# <h3 class="saved-recipe-title"><%=recipe.title.truncate(25)%></h3> %>
+		<%# <p class="saved-recipe-desc"><%=recipe.description.truncate(70)%></p> %>
+    <%# <%= link_to recipe_path %>Let's Cook</a> %>
+<%# </div> %> %>
