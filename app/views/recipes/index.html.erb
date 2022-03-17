@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@recipe.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @recipe.description %>
+<% content_for :meta_image, cl_image_path(@recipe.image.path) %>
+
 <div class="container">
     <%= simple_form_for :recipe, :url => recipes_path, method: :get do |f| %>
       <div class="index-search-bar d-flex w-100">
