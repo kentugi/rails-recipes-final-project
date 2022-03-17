@@ -43,11 +43,11 @@
           <% end %>
           <div class="navigation-links col-md-3 py-2 text-end">
             <% if user_signed_in? %>
-              <%= link_to "Log out", destroy_user_session_path(current_user), method: :delete, class:"btn ghost log-in" %>
-              <%= link_to "My Recipes", bookmarks_path, class:"btn ghost get-started" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn ghost log-in mb-0" %>
+              <%= link_to "My Recipes", bookmarks_path, class:"btn ghost get-started mb-0" %>
             <% else %>
-              <p class="btn ghost log-in"> <%= link_to "Log in", user_session_path  %> </p>
-              <p class="btn ghost get-started"> <%= link_to "Sign up", new_user_registration_path  %> </p>
+              <p class="btn ghost log-in mb-0"> <%= link_to "Log in", user_session_path  %> </p>
+              <p class="btn ghost get-started mb-0"> <%= link_to "Sign up", new_user_registration_path  %> </p>
             <% end %>
           </div>
         </header>

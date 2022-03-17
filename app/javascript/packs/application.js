@@ -11,9 +11,9 @@ import "channels"
 import "bootstrap";
 
 import "controllers"
-import { initStarRating } from '../plugins/init_star_rating';
+// import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
+// initStarRating();
 
 Rails.start()
 Turbolinks.start()
@@ -42,11 +42,11 @@ document.addEventListener("turbolinks:load", ()=> {
 
   });
 
-  // if (Turbolinks.scroll['top']) {
-  document.scrollingElement.scrollTo(0, Turbolinks.scroll['top']);
-  // }
+  if (Turbolinks.scroll) {
+    document.scrollingElement.scrollTo(0, Turbolinks.scroll['top']);
+  }
 
   Turbolinks.scroll = {};
 });
 
-app/javascript/packs/application.js
+// app/javascript/packs/application.js
