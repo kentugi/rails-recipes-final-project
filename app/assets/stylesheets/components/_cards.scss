@@ -366,10 +366,32 @@
     transform:translatex(0px) translatey(0px);
     margin-bottom:80px;
     padding-top:64px;
+    transform:scale(1.14) translatey(-12px);
  }
+
+  .blue-basket-how .d-flex h3 {
+      padding-bottom:0px;
+      padding-top:18px;
+  }
+
 
 
  /* How icon max width */
  .blue-basket-how .d-flex .how-icon-max-width{
   height:90px;
  }
+
+
+ .stars {
+  color: yellow;
+  text-decoration: none;
+  height: 32px;
+  width: 32px;
+  float: left;
+  font-size: 32px;
+  margin-right: 3px;
+}
+
+// .container .logo-header header {
+//   margin-bottom:10px;
+// }

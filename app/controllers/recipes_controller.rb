@@ -16,6 +16,10 @@ class RecipesController < ApplicationController
     @review = Review.new
     @reviews = @recipe.reviews.limit(4)
     @random_recipes = Recipe.random_recipes
+    # ratings = @reviews.map {|review| review.rating }
+    # sum = ratings.sum
+    # total = ratings.count
+    # @average = sum / total
     # @ingredient_list = []
     # @all_ingredients.each do |ingredient|
     #   if ingredient.recipe_id == @recipe.id
@@ -26,5 +30,4 @@ class RecipesController < ApplicationController
     # end
     # @instructions_array = @recipe.instruction
   end
-
 end
