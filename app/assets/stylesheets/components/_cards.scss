@@ -345,6 +345,31 @@
 
 
 .review_rating {
-  // padding-bottom:44px;
-  margin-bottom: 44px;
+  margin-bottom: 20px;
 }
+
+.how-it-works-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: black;
+}
+
+// .blue-basket-how .d-flex h3{
+//   padding-top:48px;
+//  }
+
+ .blue-basket-how {
+    position:relative;
+    top:-50px;
+    height:424px;
+    transform:translatex(0px) translatey(0px);
+    margin-bottom:80px;
+    padding-top:64px;
+ }
+
+
+ /* How icon max width */
+ .blue-basket-how .d-flex .how-icon-max-width{
+  height:90px;
+ }
