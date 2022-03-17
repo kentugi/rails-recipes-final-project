@@ -87,7 +87,7 @@
       <div class="search-form-control form-group">
         <h3 id="reply-title" class="review-reply-title">Leave a Review:</h3>
         <%= simple_form_for [@recipe, @review], html: { class: "review-form" }, method: :post do |r| %>
-          <%= r.input :rating, collection: (1..5).to_a, label: "Rating", label: false, input_html: {id: "review_rating"} %>
+          <%= r.input :rating, collection: (1..5).to_a, label: "Rating", label: false, input_html: {id: "review_rating", data: { controller: "star" }} %>
           <%= r.input :body, placeholder: "Leave your review here", label: false, html: { class: "body-form" } %>
           <%= r.submit "Submit Review", class: "btn ghost submit-comment" %>
         <% end %>
