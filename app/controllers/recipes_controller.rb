@@ -16,7 +16,6 @@ class RecipesController < ApplicationController
     @review = Review.new
     @reviews = @recipe.reviews.limit(4)
     @random_recipes = Recipe.random_recipes
-
     # @ingredient_list = []
     # @all_ingredients.each do |ingredient|
     #   if ingredient.recipe_id == @recipe.id

@@ -18,7 +18,6 @@ initStarRating();
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-// import "social-share-button"
 
 
 if (location.pathname === '/recipes') {

@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blue Basket</title>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.ico', type: 'image/ico'%>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'print', media: 'print', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400&family=Montserrat&display=swap" rel="stylesheet">
@@ -38,18 +56,21 @@
     <%= yield %>
       <div class="footer d-flex justify-content-around">
         <div class="footer-links">
-          <p>Follow Us</p>
+          <p style="text-align: center;">Follow Us</p>
           <div class="footer-smm d-flex justify-content-around">
-            <a href="#"><i class="fab fa-instagram smm-icon"></i></a>
-            <a href="#"><i class="fab fa-facebook smm-icon"></i></a>
-            <a href="#"><i class="fab fa-twitter smm-icon"></i></a>
+            <i class="fab fa-instagram smm-icon"></i>
+            <i class="fab fa-facebook smm-icon"></i>
+            <i class="fab fa-twitter smm-icon"></i>
           </div>
         </div>
         <div class="footer-newsletter-form-hldr">
+          <p style="text-align: center;">Recipes, tips & more</p>
           <%= simple_form_for :user do |f| %>
-          <%= f.input :email %>
-          <%= f.button :submit %>
-        <% end %>
+            <div class="d-flex">
+              <%= f.input :email, label: false, input_html: { class: "mb-0 h-100 subscription-input" }, placeholder: "E-mail address" %>
+              <%= f.button :submit, "Subscribe", class: "btn ghost sign-up" %>
+            </div>
+          <% end %>
         </div>
         <div class="footer-copyright">
           <p>About us</p>

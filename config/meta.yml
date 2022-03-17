@@ -1,0 +1,4 @@
+meta_product_name: "Blue Basket"
+meta_title: "Blue Basket - Discover new recipes,reduce food waste."
+meta_description: "Find recipes with ingredients that you have on hand."
+meta_image: "social_media_img_c.png" # should exist in `app/assets/images/`
