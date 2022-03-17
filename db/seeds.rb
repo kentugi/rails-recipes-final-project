@@ -177,7 +177,7 @@ inputs.each do |input|
         review_new = Review.new(
           body: review_content.text.strip,
           username: review_username.text.strip,
-          # rating: review_rating,
+          rating: [3, 4, 5].sample,
           recipe: recipe
         )
         review_new.save!

@@ -1,20 +1,39 @@
 <% if @bookmarks.any? %>
-  <div class="saved-container">
-    <p class="link-to-links"><%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path %></p>
-    <h1>Saved Recipes</h1>
-    <div class="row justify-content-between">
-      <% @bookmarks.each do |bookmark| %>
-      <div class="saved-recipe-content col-lg-3 mx-2 mb-3">
-        <%= link_to recipe_path(bookmark.recipe.id) do %>
-          <div class="saved-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= image_path bookmark.recipe.image %> ">
-            <h3 class="saved-recipe-title"><%= bookmark.recipe.title %></h3>
-          </div>
-        <% end %>
-    </div>
+<div class="saved-container">
+  <p class="link-to-links" style="margin-left: 17px; margin-top: 52px;"><%= link_to "Home", root_path %> / <%= link_to "Recipes", recipes_path %></p>
+  <h1 style="margin-left: 17px; margin-top: 52px;">Saved Recipes</h1>
+  <div class="row justify-content-between">
+    <% @bookmarks.each do |bookmark| %>
+    <div class="saved-recipe-content col-lg-3 mx-2 mb-3">
+      <%= link_to recipe_path(bookmark.recipe.id) do %>
+        <div class="saved-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= image_path bookmark.recipe.image %> ">
+          <h3 class="saved-recipe-title"><%= bookmark.recipe.title %></h3>
+        </div>
       <% end %>
-      <% else %>
-        <h2>You don't have any saved recipes.</h2>
+  </div>
     <% end %>
-      </div>
+    <% else %>
+      <h2>You don't have any saved recipes.</h2>
+  <% end %>
     </div>
   </div>
+</div>
+<div class="home-popular-recipes-cards-container popular-recipes-row", style="margin-top: 130px;">
+  <h2 class="popular-recipe-header">Popular Recipes</h2>
+    <div class="container">
+      <div class="row">
+        <% @random_recipes.each do |random_recipe| %>
+        <div class="popular-recipes-card col-lg-2 col-sm-12 col-md-6  mx-2 mb-2">
+          <%= link_to recipe_path(random_recipe) do %>
+          <div class="popular-image-div">
+              <%= image_tag random_recipe.image, class:"popular-recipe-image" %>
+            </div>
+            <div class="recipe-content">
+              <h2 class="popular-recipe-title"><%=random_recipe.title.truncate(25)%></h2>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+  </div>
+</div>

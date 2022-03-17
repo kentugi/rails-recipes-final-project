@@ -62,10 +62,15 @@
             </div>
           </div>
           <div class="recipe-bio-icons">
-            <p><i class="far fa-star "></i><i class="far fa-star "></i><i class="far fa-star "></i><i class="far fa-star "></i><i class="far fa-star "></i></p>
+          <% @recipe.avr_rating.times do  %>
+          <i class="fas fa-star" style="color: #e8c55a"></i>
+          <% end %>
+          <% (5 - @recipe.avr_rating).times do  %>
+          <i class="far fa-star" style="color: #e8c55a" ></i>
+          <% end %>
           </div>
         </div>
-        <div class="recipe-bio-description">
+        <div class="recipe-bio-description" style="margin-top: 18px;">
           <p><%= @recipe.description %></p>
         </div>
         <div class="recipe-bio-time">
@@ -98,11 +103,28 @@
         <div class="show-column-right-review-card">
           <% if review.user.nil? %>
             <div class="review-username">
-              <p> <%= review.username %></p>
+              <p> <%= review.username %>
+              <% review.rating.times do  %>
+                <i class="fas fa-star" style="color: #e8c55a"></i>
+                <% end %>
+                <% (5 - review.rating).times do  %>
+                <i class="far fa-star" style="color: #e8c55a" ></i>
+                <% end %>
+              </p>
             </div>
           <% else %>
             <div class="review-created-at">
-              <p> <%= review.user.name %> <%= review.created_at.strftime("%m.%d.%Y") %> </p>
+              <p>
+                <%= review.user.name %>
+                <%= review.created_at.strftime("%m.%d.%Y") %>
+                <%= review.user.name %>
+                <% review.rating.times do  %>
+                <i class="fas fa-star" style="color: #e8c55a"></i>
+                <% end %>
+                <% (5 - review.rating).times do  %>
+                <i class="far fa-star" style="color: #e8c55a" ></i>
+                <% end %>
+              </p>
             </div>
           <% end %>
           <div class="review-body">

@@ -29,4 +29,7 @@ class Recipe < ApplicationRecord
     random_recipes.sample(4)
   end
 
+  def avr_rating
+    reviews.pluck(:rating).sum/reviews.size
+  end
 end

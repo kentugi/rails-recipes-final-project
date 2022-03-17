@@ -3,6 +3,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
+
   def create
     @bookmark = Bookmark.new
     @recipe = Recipe.find(params[:recipe_id])
@@ -18,6 +19,7 @@ class BookmarksController < ApplicationController
 
   def index
     @bookmarks = Bookmark.where(user: current_user)
+    @random_recipes = Recipe.random_recipes
   end
 
   def destroy
