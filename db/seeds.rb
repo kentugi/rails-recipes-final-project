@@ -92,7 +92,9 @@ end
 require "open-uri"
 require "nokogiri"
 
-inputs = ["linguine", "mushroom", "kale", "eggs", "spinach", "hamburger buns", "basil", "tomato", "cauliflower"]
+inputs = ["penne", "rigatoni", "mushroom", "kale", "eggs", "spinach", "chickpeas", "carrots", "lemon", "potato",
+          "asparagus", "basil", "tomato", "cauliflower", "spaghetti", "tortilla", "lime", "tequila", "chicken",
+          "avocado", "fish", "corn", "beetroot", "mint", "grapefruit", "orange", "goat cheese", "cheddar"]
 
 inputs.each do |input|
   base_url = "https://www.loveandlemons.com/?s=#{input}&submit="
@@ -130,7 +132,8 @@ inputs.each do |input|
       prep_time = element.search(".wprm-recipe-prep_time-minutes")
       cook_time = element.search(".wprm-recipe-details-minutes")
       reviews = html_doc.search('.commentlist li.comment').first(3)
-      ratings = element.search(".wprm-recipe-rating")
+      # recipe_ratings = element.search(".wprm-recipe-rating")
+      # user_ratings = element.search(".wprm-comment-rating")
       # total_time = element.search(".ERSTime.ERSTimeRight")
 
       # rating = element.search(".rating")
@@ -170,10 +173,12 @@ inputs.each do |input|
       reviews.each do |review|
         review_content = review.search(".comment-content")
         review_username = review.search(".comment-author")
+        # review_rating = review.search(".wprm-comment-rating")
         review_new = Review.new(
           body: review_content.text.strip,
           username: review_username.text.strip,
-          recipe: recipe,
+          # rating: review_rating,
+          recipe: recipe
         )
         review_new.save!
       end
@@ -187,5 +192,6 @@ inputs.each do |input|
             amount: ingredient[:amount]
           )
       end
+
   end
 end
