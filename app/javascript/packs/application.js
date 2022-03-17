@@ -49,4 +49,4 @@ document.addEventListener("turbolinks:load", ()=> {
   Turbolinks.scroll = {};
 });
 
-app/javascript/packs/application.js
+// app/javascript/packs/application.js
